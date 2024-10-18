@@ -1,14 +1,3 @@
-# FROM python:3.9-slim
-# 
-# WORKDIR /app
-# 
-# COPY requirements.txt .
-# RUN pip install -r requirements.txt
-# 
-# COPY . .
-# 
-# CMD ["uvicorn", "producer:app", "--host", "0.0.0.0", "--port", "8000"]
-
 FROM debian:12-slim AS builder
 RUN apt-get update && \
     apt-get install --no-install-suggests --no-install-recommends --yes pipx

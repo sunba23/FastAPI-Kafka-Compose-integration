@@ -117,6 +117,7 @@ services:
   kafka-consumer:
     build: ./consumer
     container_name: kafka-consumer
+    restart: always
     networks:
       - app-network
     depends_on:
