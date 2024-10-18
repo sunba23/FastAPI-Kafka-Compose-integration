@@ -1,14 +1,26 @@
-FROM python:3.9-slim
+# FROM python:3.9-slim
+# 
+# WORKDIR /app
+# 
+# COPY requirements.txt .
+# RUN pip install -r requirements.txt
+# 
+# COPY . .
+# 
+# CMD ["uvicorn", "producer:app", "--host", "0.0.0.0", "--port", "8000"]
 
+FROM debian:12-slim AS builder
+RUN apt-get update && \
+    apt-get install --no-install-suggests --no-install-recommends --yes pipx
+ENV PATH="/root/.local/bin:${PATH}"
+RUN pipx install poetry
+RUN pipx inject poetry poetry-plugin-bundle
 WORKDIR /app
-
-# Install FastAPI, Uvicorn, and FastStream
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-# Copy the application code
 COPY . .
+RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN poetry bundle venv --python=/usr/bin/python3 --only=main /venv
 
-# Run FastAPI
-CMD ["uvicorn", "producer:app", "--host", "0.0.0.0", "--port", "8000"]
+FROM gcr.io/distroless/python3-debian12
+COPY --from=builder /venv /venv
+ENTRYPOINT ["/venv/bin/uvicorn", "src.producer:app", "--host", "0.0.0.0", "--port", "8000"]
 

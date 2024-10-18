@@ -121,13 +121,13 @@ files = [
 
 [[package]]
 name = "fast-depends"
-version = "2.4.11"
+version = "2.4.12"
 description = "FastDepends - extracted and cleared from HTTP domain logic FastAPI Dependency Injection System. Async and sync are both supported."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fast_depends-2.4.11-py3-none-any.whl", hash = "sha256:f361d6b6375184a800e93ecaf874a5ebc9905fe4f5fafecc50de2c81acf850d8"},
-    {file = "fast_depends-2.4.11.tar.gz", hash = "sha256:29c8022232d1f67408d41fc251d2756c74ba98298e0502454de9f42df99a2ab0"},
+    {file = "fast_depends-2.4.12-py3-none-any.whl", hash = "sha256:9e5d110ddc962329e46c9b35e5fe65655984247a13ee3ca5a33186db7d2d75c2"},
+    {file = "fast_depends-2.4.12.tar.gz", hash = "sha256:9393e6de827f7afa0141e54fa9553b737396aaf06bd0040e159d1f790487b16d"},
 ]
 
 [package.dependencies]
@@ -146,7 +146,6 @@ files = [
 ]
 
 [package.dependencies]
-aiokafka = {version = ">=0.9,<0.12", optional = true, markers = "extra == \"kafka\""}
 anyio = ">=3.7.1,<5"
 fast-depends = ">=2.4.0b0,<3.0.0"
 typer = {version = ">=0.9,<0.12 || >0.12,<1", optional = true, markers = "extra == \"cli\""}
@@ -533,4 +532,4 @@ anyio = ">=3.0.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "1601b0c7418e3934b189e8382589e27d19e75d5a947c1eefdf8d1dbf6d9fea88"
+content-hash = "3b555bacde803c6e91d70c63934fe6059fd55f4464734fc1348685d388f11652"

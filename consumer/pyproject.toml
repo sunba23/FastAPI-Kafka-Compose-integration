@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["Franek Suszko <franeksu@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+faststream = {extras = ["cli"], version = "^0.5.27"}
+aiokafka = "^0.11.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

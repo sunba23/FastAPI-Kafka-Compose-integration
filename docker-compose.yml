@@ -115,7 +115,7 @@ services:
         condition: service_healthy
 
   kafka-consumer:
-    build: .
+    build: ./consumer
     container_name: kafka-consumer
     networks:
       - app-network

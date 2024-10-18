@@ -11,4 +11,4 @@ RUN poetry bundle venv --python=/usr/bin/python3 --only=main /venv
 
 FROM gcr.io/distroless/python3-debian12
 COPY --from=builder /venv /venv
-ENTRYPOINT ["/venv/bin/faststream", "run", "app.main:app"]
+ENTRYPOINT ["/venv/bin/faststream", "run", "src.consumer:app"]
